@@ -3,7 +3,7 @@ workflow:
   test-deploy:
     jobs:
       -build
-      -test
+      -publish
 jobs:
   build:
     working_directory: ~/code
@@ -33,7 +33,7 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
-  test:
+  publish:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-29
