@@ -2,9 +2,9 @@ version: 2.1
 workflow:
   test-deploy:
     jobs:
-      -build
+      -customJobname
 jobs:
-  build:
+  customJobname:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-29
