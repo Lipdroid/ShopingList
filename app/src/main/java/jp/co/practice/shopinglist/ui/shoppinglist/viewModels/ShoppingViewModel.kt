@@ -1,0 +1,18 @@
+package jp.co.practice.shopinglist.ui.shoppinglist.viewModels
+
+import androidx.lifecycle.ViewModel
+import jp.co.practice.shopinglist.data.db.entities.ShoppingItem
+import jp.co.practice.shopinglist.data.db.repositories.ShoppingRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+class ShoppingViewModel(private val repository: ShoppingRepository): ViewModel() {
+    fun upsert(item: ShoppingItem) = CoroutineScope(Dispatchers.Main).launch {
+        repository.upsert(item)
+    }
+    fun delete(item: ShoppingItem) = CoroutineScope(Dispatchers.Main).launch {
+        repository.delete(item)
+    }
+    fun getAllItems()= repository.getAllShopingItem()
+}
