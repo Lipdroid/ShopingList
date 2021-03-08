@@ -1,4 +1,8 @@
 version: 2.1
+workflow:
+  test-deploy:
+    jobs:
+      -build
 jobs:
   build:
     working_directory: ~/code
