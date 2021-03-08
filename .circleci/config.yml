@@ -1,9 +1,4 @@
 version: 2.1
-workflow:
-  test-deploy:
-    jobs:
-      -build
-      -publish
 jobs:
   build:
     working_directory: ~/code
@@ -61,3 +56,8 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+workflow:
+  test-deploy:
+    jobs:
+      -build
+      -publish
