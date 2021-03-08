@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  jobname:
+  build:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-29
