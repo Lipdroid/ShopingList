@@ -9,7 +9,8 @@ import jp.co.practice.shopinglist.data.db.entities.ShoppingItem
 
 @Database(
     entities = [ShoppingItem::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getShoppingDao(): ShoppingDao
