@@ -46,8 +46,6 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
-      - post:
-          - cp -r app/build/outputs $CIRCLE_ARTIFACTS
 workflows:
   workflow:
     jobs:
