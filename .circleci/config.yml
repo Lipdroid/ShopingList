@@ -5,7 +5,6 @@ jobs:
   test:
     executor:
       name: android/android-machine
-      resource-class: large
     steps:
       - checkout
       - android/create-avd:
