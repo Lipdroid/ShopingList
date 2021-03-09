@@ -1,25 +1,21 @@
-version: '2.1'
-orbs:
-  android: circleci/android@1.0
-jobs:
-  test:
-    executor:
-      name: android/android-machine
-    steps:
-      - checkout
-      - android/create-avd:
-          avd-name: myavd
-          install: true
-          system-image: system-images;android-29;default;x86
-      - android/start-emulator:
-          avd-name: myavd
-          no-window: true
-          restore-gradle-cache-prefix: v1a
-      - android/run-tests
-      - android/save-gradle-cache:
-          cache-prefix: v1a
-workflows:
-  test:
-    jobs:
-      - test
+#
+# Build configuration for Circle CI
+#
 
+general:
+  artifacts:
+    - /home/ubuntu/your-app-name/app/build/outputs/apk/
+
+machine:
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
+
+dependencies:
+  override:
+    - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-19.1.0,android-19,extra-google-m2repository,extra-google-google_play_services,extra-android-support
+    - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
+
+test:
+  override:
+    - (./gradlew assemble):
+        timeout: 360
