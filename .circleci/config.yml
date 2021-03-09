@@ -30,7 +30,6 @@ jobs:
   publish:
     executor:
       name: android/android-machine
-      resource-class: large
     steps:
       - checkout
       - restore_cache:
