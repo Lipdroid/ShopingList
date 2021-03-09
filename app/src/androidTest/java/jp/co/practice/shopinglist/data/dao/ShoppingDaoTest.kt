@@ -22,6 +22,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @SmallTest
 class ShoppingDaoTest {
+    //iinitialize
     private lateinit var db: AppDatabase
     private lateinit var dao: ShoppingDao
 
