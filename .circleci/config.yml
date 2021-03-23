@@ -22,7 +22,7 @@ jobs:
 
       - run:
           name: install avd
-          command: /opt/android-sdk-linux/emulator/emulator -avd testEmulator -no-audio -no-window
+          command: sdkmanager "system-images;android-24;default;armeabi-v7a"
           environment:
             TERM: dumb
 
@@ -36,7 +36,7 @@ jobs:
 
       - run:
           name: Start emulator
-          command: emulator -avd testEmulator -no-audio -no-window
+          command: /opt/android-sdk-linux/emulator/emulator -avd testEmulator -no-audio -no-window
           background: true
           environment:
             TERM: dumb
