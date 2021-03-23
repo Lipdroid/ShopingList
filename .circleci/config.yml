@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name: Wait for emulator
-          command: circle-android wait-for-boot
+          command: adb wait-for-device shell 'while [[ -z $(getprop dev.bootcomplete) ]]; do sleep 1; done;'
           environment:
             TERM: dumb
 
