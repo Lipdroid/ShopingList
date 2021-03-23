@@ -10,6 +10,9 @@ jobs:
     working_directory: ~/workspace
 
     steps:
+      - run:
+          name: Updating SDK Manager
+          command: sdkmanager --update
 
       - run:
           name: Lists installed targets
