@@ -36,7 +36,7 @@ jobs:
 
       - run:
           name: Start emulator
-          command: /Users/mdmunirhossain/Library/Android/sdk/emulator -avd testEmulator -no-audio -no-window
+          command: emulator -avd testEmulator -no-audio -no-window
           background: true
           environment:
             TERM: dumb
